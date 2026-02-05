@@ -138,7 +138,8 @@ public class InvariantChecker {
         expected.put(Card.Type.DOGECOIN, 30);
         expected.put(Card.Type.METHOD, 14); // 14 + 3p - 3p = 14
         expected.put(Card.Type.MODULE, 8);
-        expected.put(Card.Type.FRAMEWORK, 8);
+        // Framework supply: 8 for 2-player games, 12 for 3-4 player games
+        expected.put(Card.Type.FRAMEWORK, numPlayers == 2 ? 8 : 12);
         expected.put(Card.Type.BUG, 10 * numPlayers);
 
         for (var entry : expected.entrySet()) {
